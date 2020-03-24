@@ -41,6 +41,7 @@ public class Evaluate {
 		this.name = name;	
 	}
 	
+	// He cambiado los enteros por double para poder meter notas más exactas
 	public void evaluate_pupil(double value) {  
 		
 		String annotation = null;
@@ -62,28 +63,33 @@ public class Evaluate {
 		
 		public String grade(double value, String annotation) {
 			
-			if(value < 5) {
-				
-				annotation = "SUSPENSO"; 
-				
-			} else if (value>=5) {
-				
-				annotation = "SUFICIENTE";
-				
-			} else if (value >= 6) {
-				
-				annotation = "BIEN";
-				
-			} else if (value >= 7) {
-				
-				annotation = "NOTABLE";
-				
-			} else if( value >= 9) {
+			if( value <= 10 && value >=9 ) {
 				
 				annotation = "SOBRESALIENTE";
 				
 			}
+			if (value <= 8 && value >=7 ) {
+				
+				annotation = "NOTABLE";
 			
+			}
+			if (value < 7 && value >=6) {
+				
+				annotation = "BIEN";
+				
+			}
+			
+			if(value < 6 && value >=5) {
+				
+				annotation = "SUFICIENTE"; 
+				
+			}
+			if (value < 5 && value >=0 ) {
+				annotation = "SUSPENSO";
+				
+			} 
+			
+		
 			return annotation;
 		}
 		
@@ -114,10 +120,11 @@ public class Evaluate {
 	public String[] getEvaluations() {
 		return evaluations;
 	}
-
-	public void setEvaluations(String[] evaluations) {
-		this.evaluations = evaluations;
-	}
+	
+	//Dejo comentado este setter por si es necesario en un futuro
+//	public void setEvaluations(String[] evaluations) {
+//		this.evaluations = evaluations;
+//	}
 	
 }
 
